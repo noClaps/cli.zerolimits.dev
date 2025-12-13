@@ -38,7 +38,7 @@ export const directory: Directory = {
     nc: {
       name: "NC",
       link: "https://nclang.org",
-      source: "https://github.com/noClaps/nc",
+      source: "https://codeberg.org/nclang",
     },
     blog: {
       name: "The Blog of Random",
