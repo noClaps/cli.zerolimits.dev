@@ -75,7 +75,7 @@ export const directory: Directory = {
     news: {
       name: "News",
       link: "https://news.zerolimits.dev",
-      source: "https://github.com/noClaps/news",
+      source: "https://codeberg.org/noClaps/news",
     },
     qcsim: {
       name: "QCSim",
