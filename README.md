@@ -7,7 +7,7 @@ The ZeroLimits.dev homepage
 Clone the repository.
 
 ```sh
-git clone https://github.com/noClaps/homepage
+git clone https://codeberg.org/noClaps/homepage
 cd homepage
 ```
 

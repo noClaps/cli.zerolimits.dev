@@ -1,4 +1,4 @@
-module github.com/noclaps/homepage
+module codeberg.org/noclaps/homepage
 
 go 1.25.5
 
