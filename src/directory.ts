@@ -60,7 +60,7 @@ export const directory: Directory = {
     catbot: {
       name: "CatBot",
       link: "https://discord.com/oauth2/authorize?client_id=1271901024910839959",
-      source: "https://github.com/noClaps/catbot",
+      source: "https://codeberg.org/noClaps/catbot",
     },
     life: {
       name: "Conway's Game of Life",
