@@ -79,7 +79,7 @@ export const directory: Directory = {
     },
     qcsim: {
       name: "QCSim",
-      source: "https://github.com/noClaps/qcsim",
+      source: "https://codeberg.org/noClaps/qcsim",
     },
   },
   "archived-projects": {
