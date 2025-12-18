@@ -95,9 +95,5 @@ export const directory: Directory = {
       name: "dot",
       source: "https://codeberg.org/noClaps/dot",
     },
-    pkg: {
-      name: "pkg",
-      source: "https://github.com/pkg-mngr/pkg",
-    },
   },
 };
