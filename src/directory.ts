@@ -43,7 +43,7 @@ export const directory: Directory = {
     blog: {
       name: "The Blog of Random",
       link: "https://blog.zerolimits.dev",
-      source: "https://github.com/noClaps/blog",
+      source: "https://codeberg.org/noClaps/blog",
     },
     homepage: {
       name: "ZeroLimits.dev",
