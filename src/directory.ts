@@ -33,7 +33,7 @@ export const directory: Directory = {
     gallery: {
       name: "Aperturic Focus",
       link: "https://gallery.zerolimits.dev",
-      source: "https://github.com/noClaps/gallery",
+      source: "https://codeberg.org/noClaps/gallery",
     },
     nc: {
       name: "NC",
