@@ -65,12 +65,12 @@ export const directory: Directory = {
     life: {
       name: "Conway's Game of Life",
       link: "https://life.zerolimits.dev",
-      source: "https://github.com/noClaps/game-of-life",
+      source: "https://codeberg.org/noClaps/game-of-life",
     },
     nbody: {
       name: "N-body Simulation",
       link: "https://nbody.zerolimits.dev",
-      source: "https://github.com/noClaps/nbody",
+      source: "https://codeberg.org/noClaps/nbody",
     },
     news: {
       name: "News",
