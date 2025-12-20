@@ -11,10 +11,10 @@ git clone https://codeberg.org/noClaps/homepage
 cd homepage
 ```
 
-Build the site.
+Build the site. You'll need [Monopack](https://codeberg.org/noClaps/monopack).
 
 ```sh
-go run .
+monopack src/index.html
 ```
 
 This will place the built files in the `dist/` directory.
