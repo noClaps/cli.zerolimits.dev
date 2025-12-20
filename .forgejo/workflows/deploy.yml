@@ -6,6 +6,7 @@ jobs:
       - uses: https://code.forgejo.org/actions/checkout@v6
       - uses: https://codeberg.org/noClaps/monopack@v1.1
       - run: |
+          echo $PATH
           monopack src/index.html
           cp -r public/** dist
       - uses: https://code.forgejo.org/actions/setup-node@v6
