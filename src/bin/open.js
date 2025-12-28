@@ -1,6 +1,11 @@
-import { directory } from "../directory.ts";
+// @ts-check
 
-export function open(args: string[]) {
+import { directory } from "../directory.js";
+
+/**
+ * @param {string[]} args
+ */
+export function open(args) {
   if (args.length < 1 || args.length > 2)
     return `Incorrect usage of the open command. Use "help open" to see how to use this command.`;
 
@@ -31,7 +36,7 @@ export function open(args: string[]) {
       return "";
     }
 
-    window.open(directory.projects[key].link!, "_blank");
+    window.open(directory.projects[key].link, "_blank");
     return "";
   }
   if (key in directory["side-projects"]) {
@@ -40,7 +45,7 @@ export function open(args: string[]) {
       return "";
     }
 
-    window.open(directory["side-projects"][key].link!, "_blank");
+    window.open(directory["side-projects"][key].link, "_blank");
     return "";
   }
   if (key in directory["archived-projects"]) {
@@ -49,7 +54,7 @@ export function open(args: string[]) {
       return "";
     }
 
-    window.open(directory["archived-projects"][key].link!, "_blank");
+    window.open(directory["archived-projects"][key].link, "_blank");
     return "";
   }
 

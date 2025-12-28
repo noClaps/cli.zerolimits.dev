@@ -1,17 +1,22 @@
-type Project = {
-  name: string;
-  link?: string;
-  source: string;
-};
+// @ts-check
 
-interface Directory {
-  projects: Record<string, Project>;
-  "side-projects": Record<string, Project>;
-  "archived-projects": Record<string, Project>;
-  contact: Record<string, { name: string; link: string; linkName: string }>;
-}
+/**
+ * @typedef {{
+ *   name: string;
+ *   link?: string;
+ *   source: string;
+ * }} Project
+ *
+ * @typedef {{
+ *   projects: Record<string, Project>;
+ *   "side-projects": Record<string, Project>;
+ *   "archived-projects": Record<string, Project>;
+ *   contact: Record<string, { name: string; link: string; linkName: string }>;
+ * }} Directory
+ */
 
-export const directory: Directory = {
+/** @type {Directory} */
+export const directory = {
   contact: {
     email: {
       name: "Email",

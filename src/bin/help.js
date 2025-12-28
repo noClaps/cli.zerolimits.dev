@@ -1,4 +1,9 @@
-export function help(args: string[]) {
+// @ts-check
+
+/**
+ * @param {string[]} args
+ */
+export function help(args) {
   if (args.length > 1) {
     return `Incorrect usage of the help command. Use "help help" to see how to use this command.`;
   }
@@ -14,7 +19,8 @@ COMMANDS
   whoami                     Show details about me
 `;
 
-  const commands: { [index: string]: string } = {
+  /** @type {Record<string, string>} */
+  const commands = {
     clear: `
 NAME: clear – Clear the screen
 USAGE: clear

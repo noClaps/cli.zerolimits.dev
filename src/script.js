@@ -1,10 +1,13 @@
-import { fallback } from "./bin/fallback.ts";
-import { help } from "./bin/help.ts";
-import { ls } from "./bin/ls.ts";
-import { open } from "./bin/open.ts";
-import { whoami } from "./bin/whoami.ts";
+// @ts-check
 
-const cmdHistory: string[] = [];
+import { fallback } from "./bin/fallback.js";
+import { help } from "./bin/help.js";
+import { ls } from "./bin/ls.js";
+import { open } from "./bin/open.js";
+import { whoami } from "./bin/whoami.js";
+
+/** @type {string[]} */
+const cmdHistory = [];
 let currentPos = cmdHistory.length - 1;
 
 const input = document.querySelector("input");
@@ -17,7 +20,7 @@ log.innerHTML += `ZeroLimits.dev – Made by <a href="https://codeberg.org/noCla
 log.innerHTML += `Type "help" to see all available commands.\n`;
 
 document.addEventListener("click", (ev) => {
-  if ((ev.target as HTMLElement).id === "log") return;
+  if (/** @type {HTMLElement} */ (ev.target).id === "log") return;
   input.focus();
 });
 
@@ -69,7 +72,7 @@ input.addEventListener("keyup", (e) => {
         return;
       }
 
-      let returnVal: string = "";
+      let returnVal = "";
       const command = cmd.split(" ")[0];
       const args = cmd.split(" ").slice(1);
 
