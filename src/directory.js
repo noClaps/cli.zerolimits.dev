@@ -67,6 +67,11 @@ export const directory = {
       link: "https://discord.com/oauth2/authorize?client_id=1271901024910839959",
       source: "https://codeberg.org/noClaps/catbot",
     },
+    cite: {
+      name: "Cite",
+      link: "https://cite.zerolimits.dev",
+      source: "https://codeberg.org/noClaps/cite",
+    },
     life: {
       name: "Conway's Game of Life",
       link: "https://life.zerolimits.dev",
