@@ -55,11 +55,6 @@ export const directory = {
       link: "https://zerolimits.dev",
       source: "https://codeberg.org/noClaps/homepage",
     },
-    znak: {
-      name: "Znak",
-      link: "https://znak.zerolimits.dev",
-      source: "https://codeberg.org/noClaps/znak",
-    },
   },
   "side-projects": {
     catbot: {
@@ -104,6 +99,10 @@ export const directory = {
     dot: {
       name: "dot",
       source: "https://codeberg.org/noClaps/dot",
+    },
+    znak: {
+      name: "Znak",
+      source: "https://codeberg.org/noClaps/znak",
     },
   },
 };
