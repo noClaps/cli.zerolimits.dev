@@ -1,8 +1,8 @@
 /* Root */
 :root {
     --mono: ui-monospace, monospace;
-    --bg: black;
-    --text: white;
+    --bg: light-dark(white, black);
+    --text: light-dark(black, white);
 
     font-family: var(--mono);
     background-color: var(--bg);
