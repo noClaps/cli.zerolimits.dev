@@ -30,7 +30,6 @@ input {
     padding: 0;
     flex-grow: 1;
     margin-left: 1ch;
-    height: 2rem;
 
     &:focus-visible {
         outline: transparent;

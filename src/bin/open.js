@@ -39,24 +39,6 @@ export function open(args) {
     window.open(directory.projects[key].link, "_blank");
     return "";
   }
-  if (key in directory["side-projects"]) {
-    if (openSource || !directory["side-projects"][key].link) {
-      window.open(directory["side-projects"][key].source, "_blank");
-      return "";
-    }
-
-    window.open(directory["side-projects"][key].link, "_blank");
-    return "";
-  }
-  if (key in directory["archived-projects"]) {
-    if (openSource || !directory["archived-projects"][key].link) {
-      window.open(directory["archived-projects"][key].source, "_blank");
-      return "";
-    }
-
-    window.open(directory["archived-projects"][key].link, "_blank");
-    return "";
-  }
 
   if (key in directory.contact) {
     if (openSource) {

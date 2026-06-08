@@ -1,3 +1,3 @@
-# ZeroLimits.dev
+# `zerolimits --cli`
 
-The ZeroLimits.dev homepage
+A CLI version of [ZeroLimits.dev](https://zerolimits.dev).

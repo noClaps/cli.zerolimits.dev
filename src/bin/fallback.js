@@ -13,7 +13,7 @@ export function fallback(command) {
 
   if (directory.contact[command]) {
     const contact = directory.contact[command];
-    return `${contact.name} - <a href="${contact.link}">${contact.linkName}</a>`;
+    return `${contact.name} - <a href="${contact.link}">${contact["link-name"]}</a>`;
   }
 
   if (command === "") return "";
