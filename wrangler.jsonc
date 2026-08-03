@@ -1,12 +1,6 @@
 {
   "name": "cli-zerolimits-dev",
   "compatibility_date": "2026-08-03",
-  "routes": [
-    {
-      "pattern": "cli.zerolimits.dev",
-      "custom_domain": true,
-    },
-  ],
   "assets": {
     "directory": "./src",
   },
