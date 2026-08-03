@@ -22,7 +22,7 @@ export const directory = await fetch("https://zerolimits.dev/data.json")
       name: "zerolimits --cli",
       description: "A CLI version of ZeroLimits.dev.",
       link: "https://cli.zerolimits.dev",
-      source: "https://github.com/noClaps/cli.zerolimits.dev",
+      source: "https://codeberg.org/noClaps/cli.zerolimits.dev",
     };
     return d;
   });
