@@ -1,0 +1,12 @@
+on: [push, workflow_dispatch]
+jobs:
+  deploy:
+    runs-on: codeberg-tiny-lazy
+    steps:
+      - uses: https://code.forgejo.org/actions/checkout@v7
+      - uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: https://cli.zerolimits.dev/
+          server: codeberg.page
+          token: ${{ forge.token }}
+          source: src/
