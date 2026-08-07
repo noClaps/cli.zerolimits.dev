@@ -1,7 +1,0 @@
-{
-  "name": "cli-zerolimits-dev",
-  "compatibility_date": "2026-08-03",
-  "assets": {
-    "directory": "./src",
-  },
-}
