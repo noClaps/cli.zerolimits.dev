@@ -19,86 +19,85 @@ log.innerHTML += `ZeroLimits.dev – Made by <a href="https://github.com/noClaps
 log.innerHTML += `Type "help" to see all available commands.\n`;
 
 document.addEventListener("click", (ev) => {
-  if (ev.target.id === "log") return;
-  input.focus();
+    if (ev.target.id === "log") return;
+    input.focus();
 });
 
 const Commands = {
-  whoami,
-  clear() {
-    log.innerHTML = "";
-    input.value = "";
-  },
-  help,
-  ls,
-  open,
-  fallback,
+    whoami,
+    clear() {
+        log.innerHTML = "";
+        input.value = "";
+    },
+    help,
+    ls,
+    open,
+    fallback,
 };
 
 input.addEventListener("keyup", (e) => {
-  switch (e.key) {
-    case "ArrowUp": {
-      if (e.key === "ArrowUp") {
-        e.preventDefault();
-        if (currentPos >= 0) {
-          input.value = cmdHistory[currentPos];
-          currentPos -= 1;
+    switch (e.key) {
+        case "ArrowUp": {
+            if (e.key === "ArrowUp") {
+                e.preventDefault();
+                if (currentPos >= 0) {
+                    input.value = cmdHistory[currentPos];
+                    currentPos -= 1;
+                }
+            }
+            break;
         }
-      }
-      break;
+
+        case "ArrowDown": {
+            e.preventDefault();
+            if (currentPos < cmdHistory.length - 1) {
+                currentPos += 1;
+                input.value = cmdHistory[currentPos];
+            } else {
+                input.value = "";
+            }
+
+            break;
+        }
+
+        case "Enter": {
+            const cmd = input.value.toLowerCase().trim();
+            cmdHistory.push(cmd);
+            currentPos = cmdHistory.length - 1;
+
+            let returnVal = "";
+            const argv = cmd.split(" ");
+
+            switch (argv[0]) {
+                case "whoami": {
+                    returnVal = Commands.whoami();
+                    break;
+                }
+                case "clear": {
+                    Commands.clear();
+                    return;
+                }
+                case "help": {
+                    returnVal = Commands.help(argv.slice(1));
+                    break;
+                }
+                case "ls": {
+                    returnVal = Commands.ls(argv.slice(1));
+                    break;
+                }
+                case "open": {
+                    returnVal = Commands.open(argv.slice(1));
+                    break;
+                }
+                default:
+                    returnVal = Commands.fallback(argv[0]);
+            }
+
+            log.innerHTML += `user@zerolimits.dev / > ${input.value}\n`;
+            if (returnVal) log.innerHTML += `${returnVal}\n`;
+
+            scrollTo({ top: document.body.scrollHeight });
+            input.value = "";
+        }
     }
-
-    case "ArrowDown": {
-      e.preventDefault();
-      if (currentPos < cmdHistory.length - 1) {
-        currentPos += 1;
-        input.value = cmdHistory[currentPos];
-      } else {
-        input.value = "";
-      }
-
-      break;
-    }
-
-    case "Enter": {
-      const cmd = input.value.toLowerCase().trim();
-      cmdHistory.push(cmd);
-      currentPos = cmdHistory.length - 1;
-
-      let returnVal = "";
-      const command = cmd.split(" ")[0];
-      const args = cmd.split(" ").slice(1);
-
-      switch (command) {
-        case "whoami": {
-          returnVal = Commands.whoami();
-          break;
-        }
-        case "clear": {
-          Commands.clear();
-          return;
-        }
-        case "help": {
-          returnVal = Commands.help(args);
-          break;
-        }
-        case "ls": {
-          returnVal = Commands.ls(args);
-          break;
-        }
-        case "open": {
-          returnVal = Commands.open(args);
-          break;
-        }
-        default:
-          returnVal = Commands.fallback(cmd);
-      }
-
-      log.innerHTML += `user@zerolimits.dev / > ${input.value}\n`;
-      if (returnVal) log.innerHTML += `${returnVal}\n`;
-
-      scrollTo(0, document.body.scrollHeight);
-      input.value = "";
-    }
-  }
 });
