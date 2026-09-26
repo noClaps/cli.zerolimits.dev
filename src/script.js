@@ -1,12 +1,11 @@
-// @ts-check
-
 import { fallback } from "./bin/fallback.js";
 import { help } from "./bin/help.js";
 import { ls } from "./bin/ls.js";
 import { open } from "./bin/open.js";
 import { whoami } from "./bin/whoami.js";
 
-/** @type {string[]} */
+export const directory = await fetch("https://zerolimits.dev/data.json").then((r) => r.json());
+
 const cmdHistory = [];
 let currentPos = cmdHistory.length - 1;
 
@@ -20,7 +19,7 @@ log.innerHTML += `ZeroLimits.dev – Made by <a href="https://github.com/noClaps
 log.innerHTML += `Type "help" to see all available commands.\n`;
 
 document.addEventListener("click", (ev) => {
-  if (/** @type {HTMLElement} */ (ev.target).id === "log") return;
+  if (ev.target.id === "log") return;
   input.focus();
 });
 

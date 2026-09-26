@@ -1,5 +1,3 @@
-// @ts-check
-
 export function whoami() {
   return `noClaps – The most interesting boring person you've ever met.
 

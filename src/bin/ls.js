@@ -1,10 +1,5 @@
-// @ts-check
+import { directory } from "../script.js";
 
-import { directory } from "../directory.js";
-
-/**
- * @param {string[]} args
- */
 export function ls(args) {
   if (args.length > 2)
     return `Incorrect usage of the ls command. Use "help ls" to see how to use this command.`;

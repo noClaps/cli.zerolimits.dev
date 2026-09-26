@@ -1,10 +1,5 @@
-// @ts-check
+import { directory } from "../script.js";
 
-import { directory } from "../directory.js";
-
-/**
- * @param {string} command
- */
 export function fallback(command) {
   if (directory.projects[command]) {
     const project = directory.projects[command];

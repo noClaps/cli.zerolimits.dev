@@ -1,10 +1,5 @@
-// @ts-check
+import { directory } from "../script.js";
 
-import { directory } from "../directory.js";
-
-/**
- * @param {string[]} args
- */
 export function open(args) {
   if (args.length < 1 || args.length > 2)
     return `Incorrect usage of the open command. Use "help open" to see how to use this command.`;
