@@ -41,17 +41,12 @@ Arguments:
 Options:
   --source  Open the link to the source code, even if there is a website link
             available.`.replaceAll("<", "&lt;");
-        case "whoami":
-            return `\
-Usage: whoami
-Show details about me`;
         default:
             return `\
 Commands:
   clear                    Clear the screen
   help                     Display help menu
   ls [directory] [--keys]  List contents of directory
-  open <key> [--source]    Open link or source in a new tab
-  whoami                   Show details about me`.replaceAll("<", "&lt;");
+  open <key> [--source]    Open link or source in a new tab`.replaceAll("<", "&lt;");
     }
 }

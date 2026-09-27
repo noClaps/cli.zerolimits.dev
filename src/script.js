@@ -2,7 +2,6 @@ import { fallback } from "./bin/fallback.js";
 import { help } from "./bin/help.js";
 import { ls } from "./bin/ls.js";
 import { open } from "./bin/open.js";
-import { whoami } from "./bin/whoami.js";
 
 export const directory = await fetch("https://zerolimits.dev/data.json").then((r) => r.json());
 
@@ -24,7 +23,6 @@ document.addEventListener("click", (ev) => {
 });
 
 const Commands = {
-    whoami,
     clear() {
         log.innerHTML = "";
         input.value = "";
@@ -69,10 +67,6 @@ input.addEventListener("keyup", (e) => {
             const argv = cmd.split(" ");
 
             switch (argv[0]) {
-                case "whoami": {
-                    returnVal = Commands.whoami();
-                    break;
-                }
                 case "clear": {
                     Commands.clear();
                     return;
