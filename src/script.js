@@ -14,9 +14,6 @@ if (!input) throw new Error("Input element not found");
 const log = document.getElementById("log");
 if (!log) throw new Error("Log element not found");
 
-log.innerHTML += `ZeroLimits.dev – Made by <a href="https://github.com/noClaps">noClaps</a>\n`;
-log.innerHTML += `Type "help" to see all available commands.\n`;
-
 document.addEventListener("click", (ev) => {
     if (ev.target.id === "log") return;
     input.focus();
