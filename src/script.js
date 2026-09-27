@@ -1,5 +1,3 @@
-import { fallback } from "./bin/fallback.js";
-import { help } from "./bin/help.js";
 import { ls } from "./bin/ls.js";
 import { open } from "./bin/open.js";
 
@@ -38,7 +36,6 @@ See clear --help for more details`;
         log.innerHTML = "";
         input.value = "";
     },
-    help,
     ls,
     open,
 };
@@ -80,7 +77,19 @@ input.addEventListener("keyup", (e) => {
             if (Object.keys(Commands).includes(argv[0])) {
                 returnVal = Commands[argv[0]](argv.slice(1));
             } else {
-                returnVal = fallback(argv[0]);
+                const command = argv[0];
+                if (directory.projects[command]) {
+                    const project = directory.projects[command];
+                    returnVal = `\
+${project.name} - ${project.link ? `<a href="${project.link}">Link</a> - ` : ""}<a href="${project.source}">Source</a>
+${project.description}`;
+                }
+                else if (directory.contact[command]) {
+                    const contact = directory.contact[command];
+                    returnVal = `${contact.name} - <a href="${contact.link}">${contact["link-name"]}</a>`;
+                }
+                else if (command === "") returnVal = "";
+                else returnVal = "Not a valid command.";
             }
             if (returnVal) log.innerHTML += `${returnVal}\n`;
 
