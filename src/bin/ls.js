@@ -1,7 +1,24 @@
 import { directory } from "../script.js";
 
 export function ls(args) {
-    if (args.length > 2) return `Incorrect usage of the ls command. Use "help ls" to see how to use this command.`;
+    if (args.includes("-h") || args.includes("--help")) return `\
+Usage: ls [directory] [--keys]
+List contents of directory
+Arguments:
+  [directory]  The directory for which to list contents. If this argument is
+               not provided, the contents of all directories are listed.
+               Directory names end with a forward slash (/).
+Options:
+  --keys       Display the keys of the listed links so that they can be used
+               with the open command. The keys are displayed in (parentheses)
+               at the end of the links.
+  -h, --help   Show this help and exit.`;
+
+    const unknownFlags = args.filter(a => a.startsWith("-") && !["-h", "--help", "--keys"].includes(a));
+    if (unknownFlags.length > 0) return `\
+Unknown flags: ${unknownFlags.join(" ")}
+Usage: ls [directory] [--keys]
+See ls --help for more details.`;
 
     let showKeys = false;
     const idx = args.findIndex(a => a === "--keys");
@@ -9,6 +26,11 @@ export function ls(args) {
         showKeys = true;
         args.splice(idx, 1);
     }
+    if (args.length > 1) return `\
+Extra arguments provided: ${args.slice(1)}
+Usage: ls [directory] [--keys]
+See ls --help for more details.`;
+
     let arg = args[0];
 
     let contactList = "";
