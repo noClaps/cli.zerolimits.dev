@@ -20,14 +20,27 @@ document.addEventListener("click", (ev) => {
 });
 
 const Commands = {
-    clear() {
+    clear(args) {
+        if (args.includes("-h") || args.includes("--help")) return `\
+Usage: clear
+Clear the screen
+Options:
+  -h, --help  Show this help and exit.`;
+        const unknownFlags = args.filter(a => a.startsWith("-") && !["-h", "--help"].includes(a));
+        if (unknownFlags.length > 0) return `\
+Unknown flags: ${unknownFlags.join(" ")}
+Usage: clear
+See clear --help for more details`;
+        if (args.length > 0) return `\
+Extra arguments provided: ${args.join(" ")}
+Usage: clear
+See clear --help for more details`;
         log.innerHTML = "";
         input.value = "";
     },
     help,
     ls,
     open,
-    fallback,
 };
 
 input.addEventListener("keyup", (e) => {
@@ -60,31 +73,15 @@ input.addEventListener("keyup", (e) => {
             cmdHistory.push(cmd);
             currentPos = cmdHistory.length - 1;
 
+            log.innerHTML += `user@zerolimits.dev / > ${input.value}\n`;
             let returnVal = "";
             const argv = cmd.split(" ");
 
-            switch (argv[0]) {
-                case "clear": {
-                    Commands.clear();
-                    return;
-                }
-                case "help": {
-                    returnVal = Commands.help(argv.slice(1));
-                    break;
-                }
-                case "ls": {
-                    returnVal = Commands.ls(argv.slice(1));
-                    break;
-                }
-                case "open": {
-                    returnVal = Commands.open(argv.slice(1));
-                    break;
-                }
-                default:
-                    returnVal = Commands.fallback(argv[0]);
+            if (Object.keys(Commands).includes(argv[0])) {
+                returnVal = Commands[argv[0]](argv.slice(1));
+            } else {
+                returnVal = fallback(argv[0]);
             }
-
-            log.innerHTML += `user@zerolimits.dev / > ${input.value}\n`;
             if (returnVal) log.innerHTML += `${returnVal}\n`;
 
             scrollTo({ top: document.body.scrollHeight });
