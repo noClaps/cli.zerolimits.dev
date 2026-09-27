@@ -15,7 +15,7 @@ Options:
               available. This flag cannot be used with a contact key.
   -h, --help  Show this help and exit.`.replaceAll("<", "&lt;");
 
-    const unknownFlag = args.filter(a => a.startsWith("-") && a !== "-h" && a !== "--help" && a !== "--source");
+    const unknownFlag = args.filter(a => a.startsWith("-") && !["-h", "--help", "--source"].includes(a));
     if (unknownFlag.length > 0) return `\
 Unknown flags: ${unknownFlag.join(" ")}
 Usage: open <key> [--source]
@@ -38,7 +38,7 @@ Missing required argument: <key>
 Usage: open <key> [--source]
 See open --help for more details.`.replaceAll("<", "&lt;");
     if (args.length > 1) return `\
-Extra arguments provided: ${args.slice(1)}
+Extra arguments provided: ${args.slice(1).join(" ")}
 Usage: open <key> [--source]
 See open --help for more details.`.replaceAll("<", "&lt;");
 

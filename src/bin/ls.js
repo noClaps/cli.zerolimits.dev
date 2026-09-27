@@ -27,7 +27,7 @@ See ls --help for more details.`;
         args.splice(idx, 1);
     }
     if (args.length > 1) return `\
-Extra arguments provided: ${args.slice(1)}
+Extra arguments provided: ${args.slice(1).join(" ")}
 Usage: ls [directory] [--keys]
 See ls --help for more details.`;
 
